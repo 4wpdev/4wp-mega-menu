@@ -1,0 +1,25 @@
+{
+  "apiVersion": 2,
+  "name": "fse/float-menu-container",
+  "title": "Float Menu Container",
+  "category": "design",
+  "description": "Container for float menu content. Add this block anywhere on the site and link it to a menu item. When the menu item is clicked, this content will appear as a floating menu.",
+  "textdomain": "forwp-mega-menu",
+  "supports": {
+    "align": [
+      "left",
+      "center",
+      "right",
+      "wide",
+      "full"
+    ],
+    "spacing": true,
+    "html": false
+  },
+  "attributes": {
+    "technicalName": {
+      "type": "string",
+      "default": ""
+    }
+  }
+}
