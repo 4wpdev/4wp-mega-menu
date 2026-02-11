@@ -9,33 +9,37 @@ License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
 == Description ==
 
-Float Menu - це простий та потужний плагін для WordPress, який додає функціональність плаваючих меню (float menu) до блочного редактора. Плагін дозволяє створювати меню, які відкриваються як бокові панелі (подібно до кошика WooCommerce) при кліку на пункти меню або іконки.
+Float Menu is a simple and powerful WordPress plugin that adds floating menu functionality to the block editor. The plugin allows you to create menus that open as side panels (similar to WooCommerce cart) when clicking on menu items or icons.
 
-== Основні можливості ==
+== Documentation ==
 
-* **Блок Float Menu Container** - створюйте контент для float меню будь-де на сайті
-* **Технічне ім'я (anchor)** - кожен контейнер має унікальне технічне ім'я для зв'язку з пунктами меню
-* **Інтеграція з Navigation** - легко підключіть float меню до будь-якого пункту меню через налаштування блоку
-* **Підтримка іконок** - працює з плагіном 4wp-icons, дозволяючи відкривати float меню при кліку на іконки
-* **WooCommerce-подібний UI** - красива анімація з'їзду з правого боку, overlay з blur ефектом
-* **Адаптивність** - автоматично адаптується до мобільних пристроїв (75% ширини на мобільних)
-* **Редактор прев'ю** - візуальне прев'ю float меню прямо в редакторі WordPress
+Full documentation and usage guide: https://4wp.dev/plugin/4wp-mega-menu
 
-== Як використовувати ==
+== Features ==
 
-1. Додайте блок "Float Menu Container" на будь-яку сторінку або в шаблон
-2. Введіть технічне ім'я для контейнера (наприклад, "social-menu")
-3. Додайте контент всередину контейнера
-4. В налаштуваннях пункту меню (Navigation Link) або іконки (4WP Icon) включіть "Enable Float Menu"
-5. Виберіть контейнер зі списку доступних
-6. Збережіть - готово! При кліку на пункт меню або іконку відкриється float меню
+* **Float Menu Container Block** - Create float menu content anywhere on your site
+* **Technical Name (Anchor)** - Each container has a unique technical name for linking to menu items
+* **Navigation Integration** - Easily connect float menu to any menu item through block settings
+* **Icon Support** - Works with 4wp-icons plugin, allowing float menus to open on icon clicks
+* **WooCommerce-like UI** - Beautiful slide-in animation from the right, overlay with blur effect
+* **Responsive Design** - Automatically adapts to mobile devices (75% width on mobile)
+* **Editor Preview** - Visual preview of float menu directly in WordPress editor
 
-== Майбутні покращення ==
+== How to Use ==
 
-* Розширення налаштувань позиціонування (справа, зліва, знизу) для кожного окремого меню
-* Кастомізація шапки float меню
-* Кастомізація кнопки закриття (повторення логіки Popup Maker)
-* Додаткові опції анімації та стилізації
+1. Add "Float Menu Container" block to any page or template
+2. Enter a technical name for the container (e.g., "social-menu")
+3. Add content inside the container
+4. In menu item (Navigation Link) or icon (4WP Icon) settings, enable "Enable Float Menu"
+5. Select the container from the available list
+6. Save - done! Clicking on the menu item or icon will open the float menu
+
+== Future Improvements ==
+
+* Extended positioning settings (right, left, bottom) for individual menus
+* Float menu header customization
+* Close button customization (reusing Popup Maker logic)
+* Additional animation and styling options
 
 
 
