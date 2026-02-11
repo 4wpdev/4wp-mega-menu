@@ -1,0 +1,177 @@
+/* Editor preview for mega panel */
+.editor-styles-wrapper .mega-panel {
+	width: 100%;
+	padding: 32px;
+	border: 1px dashed rgba(0, 0, 0, 0.15);
+	background: #fff;
+	list-style: none;
+	margin: 0;
+}
+
+.editor-styles-wrapper .mega-panel.alignfull {
+	width: 100%;
+}
+
+.editor-styles-wrapper .mega-panel.alignwide {
+	max-width: var(--wp--style--global--wide-size, 1400px);
+	margin-inline: auto;
+}
+
+.editor-styles-wrapper .mega-panel.aligncenter {
+	margin-inline: auto;
+}
+
+.editor-styles-wrapper .mega-panel.alignleft {
+	margin-right: auto;
+}
+
+.editor-styles-wrapper .mega-panel.alignright {
+	margin-left: auto;
+}
+
+.editor-styles-wrapper .mega-panel.cols-2 {
+	--forwp-mega-columns: 2;
+}
+
+.editor-styles-wrapper .mega-panel.cols-3 {
+	--forwp-mega-columns: 3;
+}
+
+.editor-styles-wrapper .mega-panel.cols-4 {
+	--forwp-mega-columns: 4;
+}
+
+.editor-styles-wrapper .mega-panel.cols-5 {
+	--forwp-mega-columns: 5;
+}
+
+.editor-styles-wrapper .mega-panel.cols-6 {
+	--forwp-mega-columns: 6;
+}
+
+.editor-styles-wrapper .mega-panel > .wp-block-columns {
+	gap: 24px;
+}
+
+.editor-styles-wrapper .mega-panel.cols-2 > .wp-block-columns .wp-block-column {
+	flex-basis: calc(100% / 2);
+}
+
+.editor-styles-wrapper .mega-panel.cols-3 > .wp-block-columns .wp-block-column {
+	flex-basis: calc(100% / 3);
+}
+
+.editor-styles-wrapper .mega-panel.cols-4 > .wp-block-columns .wp-block-column {
+	flex-basis: calc(100% / 4);
+}
+
+.editor-styles-wrapper .mega-panel.cols-5 > .wp-block-columns .wp-block-column {
+	flex-basis: calc(100% / 5);
+}
+
+.editor-styles-wrapper .mega-panel.cols-6 > .wp-block-columns .wp-block-column {
+	flex-basis: calc(100% / 6);
+}
+
+/* Editor preview for float menu container - realistic float menu preview */
+.editor-styles-wrapper .float-menu-container,
+.block-editor-block-list__layout .float-menu-container {
+	/* Position next to content, not on top */
+	position: relative !important;
+	float: right !important;
+	clear: right !important;
+	
+	/* Width like real float menu */
+	width: 100% !important;
+	max-width: 500px !important;
+	
+	/* Height limit with scroll */
+	height: auto !important;
+	max-height: 700px !important;
+	
+	/* Styling like real float menu */
+	background: #fff !important;
+	box-shadow: -2px 0 10px rgba(0, 0, 0, 0.1) !important;
+	padding: 0 !important;
+	margin: 0 0 20px 20px !important; /* Margin from left content */
+	
+	/* Layout */
+	display: flex !important;
+	flex-direction: column !important;
+	overflow: hidden !important;
+	
+	/* Visual indicator */
+	border: 2px solid rgba(0, 123, 255, 0.3) !important;
+	border-radius: 0 !important;
+	
+	/* Normal z-index, don't overlay */
+	z-index: 1 !important;
+	
+	/* Transform to show it's a preview */
+	opacity: 0.95 !important;
+}
+
+/* Header in editor preview */
+.editor-styles-wrapper .float-menu-container > .wp-block-group:first-child,
+.block-editor-block-list__layout .float-menu-container > .wp-block-group:first-child,
+.editor-styles-wrapper .float-menu-container > *:first-child,
+.block-editor-block-list__layout .float-menu-container > *:first-child {
+	/* Simulate float menu header */
+	padding: 20px !important;
+	border-bottom: 1px solid #e0e0e0 !important;
+	background: #fff !important;
+	flex-shrink: 0 !important;
+}
+
+/* Content area with scroll */
+.editor-styles-wrapper .float-menu-container > .wp-block-group:not(:first-child),
+.block-editor-block-list__layout .float-menu-container > .wp-block-group:not(:first-child),
+.editor-styles-wrapper .float-menu-container > *:not(:first-child),
+.block-editor-block-list__layout .float-menu-container > *:not(:first-child) {
+	flex: 1 !important;
+	overflow-y: auto !important;
+	overflow-x: hidden !important; /* Prevent horizontal scroll */
+	padding: 20px !important;
+	max-height: calc(700px - 80px) !important; /* Account for header */
+	width: 100% !important;
+	max-width: 100% !important;
+	box-sizing: border-box !important;
+}
+
+/* Ensure all child elements don't cause horizontal overflow */
+.editor-styles-wrapper .float-menu-container *,
+.block-editor-block-list__layout .float-menu-container * {
+	max-width: 100% !important;
+	box-sizing: border-box !important;
+	word-wrap: break-word !important;
+	overflow-wrap: break-word !important;
+}
+
+/* Label indicator */
+.editor-styles-wrapper .float-menu-container::before,
+.block-editor-block-list__layout .float-menu-container::before {
+	content: 'Float Menu Preview';
+	position: absolute;
+	top: 8px;
+	right: 8px;
+	font-size: 10px;
+	font-weight: 600;
+	color: rgba(0, 123, 255, 0.8);
+	text-transform: uppercase;
+	letter-spacing: 0.5px;
+	background: rgba(255, 255, 255, 0.9);
+	padding: 4px 8px;
+	border-radius: 3px;
+	z-index: 1;
+	pointer-events: none;
+}
+
+/* Responsive in editor - match frontend */
+@media (max-width: 599px) {
+	.editor-styles-wrapper .float-menu-container,
+	.block-editor-block-list__layout .float-menu-container {
+		max-width: 75% !important;
+		width: 75% !important;
+	}
+}
+

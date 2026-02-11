@@ -1,0 +1,21 @@
+{
+  "apiVersion": 2,
+  "name": "fse/mega-panel",
+  "title": "Mega Submenu Panel",
+  "category": "design",
+  "parent": ["core/navigation-submenu"],
+  "description": "Mega submenu container inside a navigation submenu.",
+  "textdomain": "forwp-mega-menu",
+  "supports": {
+    "align": ["left", "center", "right", "wide", "full"],
+    "spacing": true,
+    "html": false
+  },
+  "attributes": {
+    "columns": {
+      "type": "number",
+      "default": 4
+    }
+  }
+}
+
