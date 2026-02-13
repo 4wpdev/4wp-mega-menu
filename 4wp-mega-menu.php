@@ -1,9 +1,9 @@
 <?php
 /**
- * Plugin Name: Forwp Mega Menu
+ * Plugin Name: 4WP Mega Menu
  * Plugin URI: https://4wp.dev/plugin/4wp-mega-menu
  * Description: Float Menu functionality for WordPress block editor. Create floating side menus that open on click, similar to WooCommerce cart.
- * Version: 1.0.0
+ * Version: 1.0.1
  * Author: 4WP Development Team
  * Author URI: https://4wp.dev
  * Text Domain: forwp-mega-menu

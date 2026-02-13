@@ -73,27 +73,29 @@
 	flex-basis: calc(100% / 6);
 }
 
-/* Editor preview for float menu container - realistic float menu preview */
+/* Editor preview for float menu container - collapsed by default, expanded on click/selection */
 .editor-styles-wrapper .float-menu-container,
 .block-editor-block-list__layout .float-menu-container {
-	/* Position next to content, not on top */
-	position: relative !important;
-	float: right !important;
-	clear: right !important;
+	/* Position fixed to the right edge */
+	position: fixed !important;
+	right: 0 !important;
+	top: 50% !important;
+	transform: translateY(-50%) !important;
 	
-	/* Width like real float menu */
-	width: 100% !important;
-	max-width: 500px !important;
+	/* Collapsed state - minimal width */
+	width: 50px !important;
+	max-width: 50px !important;
+	min-width: 50px !important;
 	
-	/* Height limit with scroll */
+	/* Height limit */
 	height: auto !important;
-	max-height: 700px !important;
+	max-height: 80vh !important;
 	
-	/* Styling like real float menu */
+	/* Styling */
 	background: #fff !important;
 	box-shadow: -2px 0 10px rgba(0, 0, 0, 0.1) !important;
 	padding: 0 !important;
-	margin: 0 0 20px 20px !important; /* Margin from left content */
+	margin: 0 !important;
 	
 	/* Layout */
 	display: flex !important;
@@ -102,13 +104,56 @@
 	
 	/* Visual indicator */
 	border: 2px solid rgba(0, 123, 255, 0.3) !important;
-	border-radius: 0 !important;
+	border-radius: 4px 0 0 4px !important;
 	
-	/* Normal z-index, don't overlay */
-	z-index: 1 !important;
+	/* Z-index to be above content */
+	z-index: 100 !important;
 	
-	/* Transform to show it's a preview */
-	opacity: 0.95 !important;
+	/* Transition for smooth expand/collapse */
+	transition: width 0.3s ease, max-width 0.3s ease !important;
+	
+	/* Hide content by default */
+	opacity: 0.7 !important;
+}
+
+/* Expanded state - when block is selected or focused */
+.editor-styles-wrapper .float-menu-container.is-selected,
+.editor-styles-wrapper .float-menu-container.has-child-selected,
+.editor-styles-wrapper .float-menu-container.is-focused,
+.block-editor-block-list__layout .float-menu-container.is-selected,
+.block-editor-block-list__layout .float-menu-container.has-child-selected,
+.block-editor-block-list__layout .float-menu-container.is-focused,
+.editor-styles-wrapper .float-menu-container:hover,
+.block-editor-block-list__layout .float-menu-container:hover {
+	/* Expanded width */
+	width: 500px !important;
+	max-width: 500px !important;
+	min-width: 500px !important;
+	
+	/* Full opacity */
+	opacity: 1 !important;
+}
+
+/* Hide all content by default */
+.editor-styles-wrapper .float-menu-container > *,
+.block-editor-block-list__layout .float-menu-container > * {
+	opacity: 0 !important;
+	overflow: hidden !important;
+	transition: opacity 0.2s ease !important;
+	pointer-events: none !important;
+}
+
+/* Show content when expanded */
+.editor-styles-wrapper .float-menu-container.is-selected > *,
+.editor-styles-wrapper .float-menu-container.has-child-selected > *,
+.editor-styles-wrapper .float-menu-container.is-focused > *,
+.block-editor-block-list__layout .float-menu-container.is-selected > *,
+.block-editor-block-list__layout .float-menu-container.has-child-selected > *,
+.block-editor-block-list__layout .float-menu-container.is-focused > *,
+.editor-styles-wrapper .float-menu-container:hover > *,
+.block-editor-block-list__layout .float-menu-container:hover > * {
+	opacity: 1 !important;
+	pointer-events: auto !important;
 }
 
 /* Header in editor preview */
@@ -132,7 +177,7 @@
 	overflow-y: auto !important;
 	overflow-x: hidden !important; /* Prevent horizontal scroll */
 	padding: 20px !important;
-	max-height: calc(700px - 80px) !important; /* Account for header */
+	max-height: calc(80vh - 80px) !important; /* Account for header */
 	width: 100% !important;
 	max-width: 100% !important;
 	box-sizing: border-box !important;
@@ -147,31 +192,62 @@
 	overflow-wrap: break-word !important;
 }
 
-/* Label indicator */
+/* Label indicator - always visible */
 .editor-styles-wrapper .float-menu-container::before,
 .block-editor-block-list__layout .float-menu-container::before {
-	content: 'Float Menu Preview';
+	content: 'Float Menu';
 	position: absolute;
-	top: 8px;
-	right: 8px;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%) rotate(-90deg);
+	transform-origin: center;
 	font-size: 10px;
 	font-weight: 600;
 	color: rgba(0, 123, 255, 0.8);
 	text-transform: uppercase;
 	letter-spacing: 0.5px;
-	background: rgba(255, 255, 255, 0.9);
+	background: rgba(255, 255, 255, 0.95);
 	padding: 4px 8px;
 	border-radius: 3px;
-	z-index: 1;
+	z-index: 101;
 	pointer-events: none;
+	white-space: nowrap;
+	opacity: 1 !important;
+	transition: opacity 0.2s ease !important;
+}
+
+/* Hide label when expanded */
+.editor-styles-wrapper .float-menu-container.is-selected::before,
+.editor-styles-wrapper .float-menu-container.has-child-selected::before,
+.editor-styles-wrapper .float-menu-container.is-focused::before,
+.block-editor-block-list__layout .float-menu-container.is-selected::before,
+.block-editor-block-list__layout .float-menu-container.has-child-selected::before,
+.block-editor-block-list__layout .float-menu-container.is-focused::before,
+.editor-styles-wrapper .float-menu-container:hover::before,
+.block-editor-block-list__layout .float-menu-container:hover::before {
+	opacity: 0 !important;
 }
 
 /* Responsive in editor - match frontend */
 @media (max-width: 599px) {
 	.editor-styles-wrapper .float-menu-container,
 	.block-editor-block-list__layout .float-menu-container {
-		max-width: 75% !important;
-		width: 75% !important;
+		width: 50px !important;
+		max-width: 50px !important;
+		min-width: 50px !important;
+	}
+	
+	.editor-styles-wrapper .float-menu-container.is-selected,
+	.editor-styles-wrapper .float-menu-container.has-child-selected,
+	.editor-styles-wrapper .float-menu-container.is-focused,
+	.block-editor-block-list__layout .float-menu-container.is-selected,
+	.block-editor-block-list__layout .float-menu-container.has-child-selected,
+	.block-editor-block-list__layout .float-menu-container.is-focused,
+	.editor-styles-wrapper .float-menu-container:hover,
+	.block-editor-block-list__layout .float-menu-container:hover {
+		max-width: 75vw !important;
+		width: 75vw !important;
+		min-width: 75vw !important;
 	}
 }
 
