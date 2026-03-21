@@ -355,6 +355,7 @@
 		
 		// Store overlay reference
 		floatMenu.overlay = overlay;
+		floatMenu.content = content;
 		
 		// Close button handler
 		closeBtn.addEventListener('click', function(e) {
@@ -368,6 +369,16 @@
 			if (e.target === overlay) {
 				closeFloatMenu(floatMenu);
 			}
+		});
+
+		// Close float menu when clicking any link inside the float menu content
+		content.addEventListener('click', function(e) {
+			const link = e.target.closest('a[href]');
+			if (!link) {
+				return;
+			}
+			// Allow navigation, just close the float menu UI
+			closeFloatMenu(floatMenu);
 		});
 		
 		return floatMenu;
@@ -407,6 +418,7 @@
 		
 		// Store overlay reference
 		floatMenu.overlay = overlay;
+		floatMenu.content = content;
 		
 		// Close button handler
 		closeBtn.addEventListener('click', function(e) {
@@ -420,6 +432,15 @@
 			if (e.target === overlay) {
 				closeFloatMenu(floatMenu);
 			}
+		});
+
+		// Close float menu when clicking any link inside the float menu content
+		content.addEventListener('click', function(e) {
+			const link = e.target.closest('a[href]');
+			if (!link) {
+				return;
+			}
+			closeFloatMenu(floatMenu);
 		});
 		
 		return floatMenu;
