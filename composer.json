@@ -1,0 +1,10 @@
+{
+  "name": "4wpdev/4wp-mega-menu",
+  "description": "Float Menu functionality for WordPress block editor. Create floating side menus that open on click, similar to WooCommerce cart.",
+  "type": "wordpress-plugin",
+  "license": "GPL-2.0-or-later",
+  "require": {
+    "php": ">=7.4",
+    "composer/installers": "^2.0"
+  }
+}
